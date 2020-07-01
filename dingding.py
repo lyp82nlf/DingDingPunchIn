@@ -6,8 +6,7 @@ import time
 
 # GEOJKZFEA6YHVCGI  ql
 # QLXBBBA640771867  mk
-
-root_dir = "/Users/bjhl/Documents/PyCharmProjects/DingDingPunchIn/"  # 请更改项目根目录地址
+from ROOT_DIR import ROOT_DIR
 
 
 def offWorkJob():
@@ -19,9 +18,9 @@ def offWorkJob():
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
     for dev in devList:
-        print(root_dir + dev + "_offWork.sh " + dev)
+        print(ROOT_DIR + dev + "_offWork.sh " + dev)
         if dev in devices:
-            print(subprocess.call(root_dir + dev + "_offWork.sh " + dev,
+            print(subprocess.call(ROOT_DIR + dev + "_offWork.sh " + dev,
                                   shell=True))
             time.sleep(5)
         else:
@@ -38,9 +37,9 @@ def go2WorkJob():
     devices = str(devices.stdout.read(), encoding="utf-8")
     print("devices:" + devices)
     for dev in devList:
-        print(root_dir + dev + "_Go2Work.sh " + dev)
+        print(ROOT_DIR + dev + "_Go2Work.sh " + dev)
         if dev in devices:
-            print(subprocess.call(root_dir + dev + "_Go2Work.sh " + dev,
+            print(subprocess.call(ROOT_DIR + dev + "_Go2Work.sh " + dev,
                                   shell=True))
             time.sleep(5)
         else:
