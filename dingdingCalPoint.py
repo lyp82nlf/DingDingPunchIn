@@ -6,6 +6,7 @@ import time
 
 # GEOJKZFEA6YHVCGI  ql
 # QLXBBBA640771867  mk
+# 需要手动算点  不会被检查到  不会出问题
 from ROOT_DIR import ROOT_DIR
 
 
@@ -49,8 +50,8 @@ def go2WorkJob():
 if __name__ == '__main__':
 
     schedule.every().day.at("21:01").do(offWorkJob)
-    schedule.every().day.at("08:50").do(go2WorkJob)
-    schedule.every().day.at("17:27").do(go2WorkJob)
+    schedule.every().day.at("08:45").do(go2WorkJob)
+    schedule.every().day.at("18:31").do(go2WorkJob)
 
     while True:
         schedule.run_pending()

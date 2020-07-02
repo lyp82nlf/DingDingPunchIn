@@ -3,9 +3,11 @@ import subprocess
 import uiautomator2 as u2
 import time
 
+from ROOT_DIR import AUTO_PUNCH_ARRAY
 
-def go2Work():
-    devices = ['2b59a736', '5121a46c', 'GEOJKZFEA6YHVCGI', 'QLXBBBA640771867']
+
+def offWork():
+    devices = AUTO_PUNCH_ARRAY
 
     currentDevices = subprocess.Popen("adb devices", shell=True, stdout=subprocess.PIPE)
     currentDevices.wait()

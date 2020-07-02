@@ -1,9 +1,9 @@
 import uiautomator2 as u2
 import time
-import autoUi_Go2Work
+import autoUi_offWork
 
 if __name__ == '__main__':
-    # d = u2.connect_usb('2b59a736')
+    d = u2.connect_usb('QLXBBBA640771867')
     # # d.screen_off()  # turn off the screen
     # # time.sleep(3)
     # d.screen_on()  # turn on the screen
@@ -23,4 +23,3 @@ if __name__ == '__main__':
     # d.app_stop('com.alibaba.android.rimet')
     # time.sleep(5)
     # d.screen_off()  # turn off the screen
-    autoUi_Go2Work.go2Work()
