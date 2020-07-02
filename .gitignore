@@ -2,3 +2,4 @@
 /.idea/*
 /venv/
 /ROOT_DIR.py
+/__pycache__/
