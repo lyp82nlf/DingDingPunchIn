@@ -10,7 +10,7 @@ from ROOT_DIR import ROOT_DIR
 
 
 def offWorkJob():
-    sleepTime = random.randint(0, 5)
+    sleepTime = random.randint(0, 100)
     print("sleepTime:" + str(sleepTime))
     time.sleep(sleepTime)
     devList = ['2b59a736', '5121a46c', 'GEOJKZFEA6YHVCGI', '7a30cc17']
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
     schedule.every().day.at("21:01").do(offWorkJob)
     schedule.every().day.at("08:45").do(go2WorkJob)
-    schedule.every().day.at("18:43").do(offWorkJob)
+    schedule.every().day.at("18:41").do(offWorkJob)
 
     while True:
         schedule.run_pending()

@@ -19,11 +19,11 @@ sleep 30s
 adb -s $1 shell input tap 951  986 #点击考勤打卡图标
 echo 点击考勤打卡图标
 sleep 30s
-adb -s $1 shell input tap 184 1140 #点击考勤打卡
+adb -s $1 shell input tap 565 1097 #点击考勤打卡
 echo 点击考勤打卡
 sleep 30s
-adb -s $1 shell input tap 826 1049 #点击考勤打卡
-echo 点击考勤打卡确认
+#adb -s $1 shell input tap 826 1049 #点击考勤打卡
+#echo 点击考勤打卡确认
 sleep 30s
 adb -s $1 shell am force-stop com.alibaba.android.rimet
 echo 关闭钉钉
