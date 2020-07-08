@@ -6,7 +6,7 @@ echo 设备$1开始
 sleep 3s
 adb -s $1 shell input keyevent 224 #点亮屏幕
 echo 点亮屏幕
-sleep 5s
+sleep 4s
 adb -s $1 shell input swipe 300 1000 300 500
 echo 解锁
 sleep 10s
@@ -16,10 +16,10 @@ sleep 30s
 adb -s $1 shell input tap 531  1842 #点击百家云图标
 echo 点击百家云图标
 sleep 30s
-adb -s $1 shell input tap 951  986 #点击考勤打卡图标
+adb -s $1 shell input tap 150  975 #点击考勤打卡图标
 echo 点击考勤打卡图标
 sleep 30s
-adb -s $1 shell input tap 565 1097 #点击考勤打卡
+adb -s $1 shell input tap 546 1144 #点击考勤打卡
 echo 点击考勤打卡
 sleep 30s
 adb -s $1 shell am force-stop com.alibaba.android.rimet
