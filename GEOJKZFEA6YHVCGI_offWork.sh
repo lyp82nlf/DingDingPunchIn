@@ -9,7 +9,7 @@ echo 点亮屏幕
 sleep 5s
 adb -s $1 shell input swipe 300 1000 300 500
 echo 解锁
-sleep 3s
+sleep 10s
 adb -s $1 shell am start -n com.alibaba.android.rimet/.biz.LaunchHomeActivity
 echo 开启钉钉
 sleep 30s
@@ -24,7 +24,7 @@ echo 点击考勤打卡
 sleep 30s
 #adb -s $1 shell input tap 826 1049 #点击考勤打卡
 #echo 点击考勤打卡确认
-sleep 30s
+#sleep 30s
 adb -s $1 shell am force-stop com.alibaba.android.rimet
 echo 关闭钉钉
 sleep 30s
