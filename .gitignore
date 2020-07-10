@@ -3,3 +3,5 @@
 /venv/
 /ROOT_DIR.py
 /__pycache__/
+/logs/
+/logs/*

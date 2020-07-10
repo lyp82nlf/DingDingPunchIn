@@ -6,14 +6,14 @@ import time
 # GEOJKZFEA6YHVCGI  ql
 # QLXBBBA640771867  mk
 # 需要手动算点  不会被检查到  不会出问题
-from ROOT_DIR import ROOT_DIR
+from ROOT_DIR import ROOT_DIR, CAL_POINT_ARRAY
 
 
 def offWorkJob():
     sleepTime = random.randint(0, 100)
     print("sleepTime:" + str(sleepTime))
     time.sleep(sleepTime)
-    devList = ['2b59a736', '5121a46c', 'GEOJKZFEA6YHVCGI', '7a30cc17','QLXBBBA640771867']
+    devList = CAL_POINT_ARRAY
     devices = subprocess.Popen("adb devices", shell=True, stdout=subprocess.PIPE)
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
@@ -31,7 +31,7 @@ def go2WorkJob():
     sleepTime = random.randint(0, 100)
     print("sleepTime:" + str(sleepTime))
     time.sleep(sleepTime)
-    devList = ['2b59a736', '5121a46c', 'GEOJKZFEA6YHVCGI', '7a30cc17','QLXBBBA640771867']
+    devList = CAL_POINT_ARRAY
     devices = subprocess.Popen("adb devices", shell=True, stdout=subprocess.PIPE)
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
@@ -48,12 +48,11 @@ def go2WorkJob():
 
 if __name__ == '__main__':
 
-    schedule.every().day.at("21:00").do(offWorkJob)
+    schedule.every().day.at("21:10").do(offWorkJob)
     schedule.every().day.at("08:45").do(go2WorkJob)
-    schedule.every().day.at("19:20").do(offWorkJob)
+    schedule.every().day.at("20:10").do(offWorkJob)
 
     while True:
         schedule.run_pending()
         print("wait 1s  current time:" + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         time.sleep(1)
-
