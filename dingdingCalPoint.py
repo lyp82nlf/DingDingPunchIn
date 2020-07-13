@@ -48,9 +48,10 @@ def go2WorkJob():
 
 if __name__ == '__main__':
 
-    schedule.every().day.at("21:10").do(offWorkJob)
+    # schedule.every().day.at("21:14").do(offWorkJob)
+    schedule.every().day.at("21:02").do(offWorkJob)
     schedule.every().day.at("08:45").do(go2WorkJob)
-    schedule.every().day.at("20:10").do(offWorkJob)
+    schedule.every().day.at("18:37").do(offWorkJob)
 
     while True:
         schedule.run_pending()

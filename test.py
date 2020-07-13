@@ -3,17 +3,17 @@ import subprocess
 import schedule
 import time
 
-from ROOT_DIR import ROOT_DIR
+from ROOT_DIR import ROOT_DIR, CAL_POINT_ARRAY
 
 if __name__ == '__main__':
-    devList = ['2b59a736', '5121a46c', '7a30cc17']
+    devList = CAL_POINT_ARRAY
     devices = subprocess.Popen("adb devices", shell=True, stdout=subprocess.PIPE)
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
     for dev in devList:
-        print(ROOT_DIR + dev + "_Go2Work.sh " + dev)
+        print(ROOT_DIR + dev + "_offWork.sh " + dev)
         if dev in devices:
-            print(subprocess.call(ROOT_DIR + dev + "_Go2Work.sh " + dev,
+            print(subprocess.call(ROOT_DIR + dev + "_offWork.sh " + dev,
                                   shell=True))
             time.sleep(5)
         else:
