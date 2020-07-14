@@ -1,7 +1,8 @@
 #!/bin/bash
 # 说明 下面的所有坐标都需要自己设置一下 每个手机可以自己适配  延迟时间根据手机响应时间来
 # 红米 邱凌
-currentlog="/Users/mac/Documents/PycharmPro/DingDingPunchIn/logs/`date +%Y-%m-%d`.log"
+logDir=$(pwd)/logs/
+currentlog="$logDir`date +%Y-%m-%d`.log"
 adb -s $1 shell input keyevent 223 #熄灭屏幕
 echo 设备$1开始 >> $currentlog
 sleep 3s
