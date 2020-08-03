@@ -11,6 +11,7 @@ if __name__ == '__main__':
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
     for dev in devList:
+        print(ROOT_DIR)
         print(ROOT_DIR + dev + "_offWork.sh " + dev)
         if dev in devices:
             print(subprocess.call(ROOT_DIR + dev + "_offWork.sh " + dev,
