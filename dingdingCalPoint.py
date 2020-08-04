@@ -49,8 +49,8 @@ def go2WorkJob():
 if __name__ == '__main__':
     #adb devices
 
-    schedule.every().saturday.at("21:08").do(offWorkJob)
-    schedule.every().monday.at("08:40").do(go2WorkJob)
+    schedule.every().day.at("21:15").do(offWorkJob)
+    schedule.every().day.at("08:40").do(go2WorkJob)
 
     while True:
         schedule.run_pending()
