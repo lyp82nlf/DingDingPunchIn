@@ -17,6 +17,11 @@ def offWorkJob():
     devices = subprocess.Popen("adb devices", shell=True, stdout=subprocess.PIPE)
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
+    if "offline" in devices:
+        subprocess.Popen("adb kill-server", shell=True, stdout=subprocess.PIPE)
+        time.sleep(10)
+        subprocess.Popen("adb start-server", shell=True, stdout=subprocess.PIPE)
+        time.sleep(10)
     for dev in devList:
         print(ROOT_DIR + dev + "_offWork.sh " + dev)
         if dev in devices:
