@@ -62,7 +62,7 @@ if __name__ == '__main__':
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
     print("devices:" + devices)
-    schedule.every().day.at("19:35").do(offWorkJob)
+    schedule.every().day.at("21:35").do(offWorkJob)
     schedule.every().day.at("08:35").do(go2WorkJob)
     while True:
         schedule.run_pending()
