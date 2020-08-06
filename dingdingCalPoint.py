@@ -40,6 +40,11 @@ def go2WorkJob():
     devices = subprocess.Popen("adb devices", shell=True, stdout=subprocess.PIPE)
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
+    if "offline" in devices:
+        subprocess.Popen("adb kill-server", shell=True, stdout=subprocess.PIPE)
+        time.sleep(10)
+        subprocess.Popen("adb start-server", shell=True, stdout=subprocess.PIPE)
+        time.sleep(10)
     print("devices:" + devices)
     for dev in devList:
         print(ROOT_DIR + dev + "_Go2Work.sh " + dev)
@@ -53,10 +58,8 @@ def go2WorkJob():
 
 if __name__ == '__main__':
 
-    # schedule.every().day.at("21:14").do(offWorkJob)
     schedule.every().day.at("21:02").do(offWorkJob)
     schedule.every().day.at("08:45").do(go2WorkJob)
-    schedule.every().day.at("18:37").do(offWorkJob)
 
     while True:
         schedule.run_pending()
