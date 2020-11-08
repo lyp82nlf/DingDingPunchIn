@@ -17,7 +17,7 @@ def offWorkJob():
     devices = subprocess.Popen("adb devices", shell=True, stdout=subprocess.PIPE)
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
-    if "offline" in devices:
+    if "offline" in devices or "5470f2e4" not in devices:
         subprocess.Popen("adb kill-server", shell=True, stdout=subprocess.PIPE)
         time.sleep(10)
         subprocess.Popen("adb start-server", shell=True, stdout=subprocess.PIPE)
@@ -57,13 +57,14 @@ def go2WorkJob():
 
 
 if __name__ == '__main__':
-    #adb devices
+    # adb devices
     devices = subprocess.Popen("adb devices", shell=True, stdout=subprocess.PIPE)
     devices.wait()
     devices = str(devices.stdout.read(), encoding="utf-8")
     print("devices:" + devices)
-    schedule.every().day.at("21:35").do(offWorkJob)
-    schedule.every().day.at("08:35").do(go2WorkJob)
+    #TODO 记得改回day！！！！！！！！！！！！！
+    schedule.every().day.at("21:10").do(offWorkJob)
+    schedule.every().day.at("07:40").do(go2WorkJob)
     while True:
         schedule.run_pending()
         print("wait 1s  current time:" + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
