@@ -63,9 +63,9 @@ if __name__ == '__main__':
     devices = str(devices.stdout.read(), encoding="utf-8")
     print("devices:" + devices)
     #TODO 记得改回day！！！！！！！！！！！！！
-    schedule.every().day.at("21:10").do(offWorkJob)
-    schedule.every().day.at("07:40").do(go2WorkJob)
+    schedule.every().day.at("21:03").do(offWorkJob)
+    schedule.every().day.at("08:40").do(go2WorkJob)
     while True:
-        schedule.run_pending()
+        schedule.run_pending(   )
         print("wait 1s  current time:" + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
         time.sleep(1)

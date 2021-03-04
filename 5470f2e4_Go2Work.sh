@@ -10,9 +10,13 @@ adb -s $1 shell input keyevent 224 #点亮屏幕
 echo 点亮屏幕 >> $currentlog
 sleep 3s
 sh screencap.sh $1 点亮屏幕
-adb -s $1 shell input swipe 300 1000 300 500
+adb -s $1 shell input swipe 300 1000 300 100
+sleep 1s
+adb -s $1 shell input swipe 300 1000 300 200
+sleep 1s
+adb -s $1 shell input swipe 300 1000 300 50
+sleep 1s
 echo 解锁 >> $currentlog
-sleep 5s
 sh screencap.sh $1 解锁
 adb -s $1 shell am start -n com.alibaba.android.rimet/.biz.LaunchHomeActivity
 echo 开启钉钉 >> $currentlog

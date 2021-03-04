@@ -9,7 +9,7 @@ sleep 3s
 adb -s $1 shell input keyevent 224 #点亮屏幕
 echo 下班点亮屏幕 >> $currentlog
 sleep 3s
-adb -s $1 shell input swipe 300 1000 300 500
+adb -s $1 shell input swipe 300 1000 300 100
 echo 下班解锁 >> $currentlog
 sleep 5s
 sh screencap.sh $1 下班解锁
